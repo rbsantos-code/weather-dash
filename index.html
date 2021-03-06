@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="container" id="jumbotron">
+        <div class="container-fluid text-white text-center bg-dark">
+            <h1>What's The Weather Like?</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 bg-light">
+                <h4>Where are we going?</h4>
+                <div class="input-group mb-3">
+                    <input class= "search-city" type="text" class="form-control" placeholder="Enter City">
+                    <div class="input-group-append">
+                        <button id="search-button" class="btn btn-primary mb-3" type="button"> Search Now!
+                            <span class="oi oi-dashboard"></span>
+                        </button>
+                    </div>
+                </div>
+                <!--History location section-->
+                <div class="city-history" id="history">
+                    <h5>Bookmarks</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Main Content Section-->
+            <div class="col-lg-9" id="weather-card">
+            <!--Weather card section-->
+                <div class="row">
+                    <div class="col-lg-11 card">
+                        <h2 id="city-name"></h2>
+                        <div class="row" id="weather-info">
+                            <div class="col-md-2 bg-primary text-white m-2 rounded temperature"></div>
+                            <div class="col-md-2 bg-primary text-white m-2 rounded humidity"></div>
+                            <div class="col-md-2 bg-primary text-white m-2 rounded wind-speed"></div>
+                            <div class="col-md-2 bg-primary text-white m-2 rounded UV"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="5-day">
+                    <div class="col-lg-12">
+                        <h2>Five Day Forecast</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body forecast"></div>
+                    <div class="card-body forecast"></div>
+                    <div class="card-body forecast"></div>
+                    <div class="card-body forecast"></div>
+                    <div class="card-body forecast"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
