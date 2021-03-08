@@ -1,6 +1,7 @@
 var cityNameEl = document.querySelector("#city-name");
 var searchInputEl = document.querySelector(".search-city");
 var searchButtonEl = document.querySelector("#search-button");
+var refreshButtonEl = document.querySelector("#refresh-button");
 var bookmarksEl = document.querySelector("#bookmark");
 var searchBookmark = JSON.parse(localStorage.getItem("search")) || [];
 
@@ -55,5 +56,12 @@ searchButtonEl.addEventListener("click", function() {
     getWeather(searchCity);
     searchBookmark.push(searchCity);
     localStorage.setItem("search", JSON.stringify(searchBookmark));
+    showSearchBookmarks();
+})
+
+// button section for refresh button
+refreshButtonEl.addEventListener("click", function() {
+    localStorage.clear();
+    searchBookmark = [];
     showSearchBookmarks();
 })
