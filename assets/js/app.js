@@ -5,7 +5,7 @@ var refreshButtonEl = document.querySelector("#refresh-button");
 var bookmarksEl = document.querySelector("#bookmark");
 var searchBookmark = JSON.parse(localStorage.getItem("search")) || [];
 
-const apiKey = "HvaacROi9w5oQCDYHSIk42eiDSIXH3FN&";
+const apiKey = "0407705a6c8b13b72c72ab44889502ee";
 
 function getWeather(city) {
 
