@@ -27,18 +27,27 @@ function getWeather(city) {
         
         // weather card section
         cityNameEl.innerHTML = data.name + dateInfo
+
         // temperature 
-        var temp = parseInt((data.main.temp)* 9/5 - 459);
-        var cityTemp = $("<p>").text("Temp: " + temp + " Fahrenheit");
-        $("#temp").append(cityTemp);
+
+        var tempEl = document.querySelector("#temp");
+        tempEl.innerHTML = "Temp: " + data.main.temp + " degrees";
+
         // humidity 
-        var cityHumid = $("<p>").text("Humdity: " + response.main.humidty + " %");
-        $("#humid").append(cityHumid);
+
+        var humidityEl = document.querySelector("#humid");
+        humidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
+
         // Wind Speeds
-        var windSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + " mph");
-        $("#wind-speed").append(windSpeed);
+
+        var windEl = document.querySelector("#wind");
+        windEl.innerHTML = "Wind Speed: " + data.wind.speed + " mph";
+
+       // UV Section
+
+
         
-        return data.json();
+        // return data.json();
     });
 
 
