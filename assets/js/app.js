@@ -22,6 +22,7 @@ function getWeather(city) {
     var dateInfo = " (" + month + "/" + day + "/" + year + ") ";
 
     fetch(weatherAPI).then(response => response.json()).then(data => console.log(data));
+    // Add console log to see json from api
 
     fetch(weatherAPI).then(response => response.json()).then(function(data) {
         
@@ -45,9 +46,21 @@ function getWeather(city) {
 
        // UV Section
 
+       var lon = data.coord.lon;
+       var lat = data.coord.lat;
+       
+       var uvAPI = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
-        
-        // return data.json();
+       fetch(uvAPI).then(response => response.json()).then(info => console.log(info));
+       // add console log to see json from api
+
+       fetch(uvAPI).then(response => response.json()).then(function(info) {
+
+        var uvEl = document.querySelector("#uvRay");
+        uvEl.innerHTML = "UV: " + info.value;
+ 
+       })
+
     });
 
 
