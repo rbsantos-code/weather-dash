@@ -1,4 +1,10 @@
 
+#weather-info p {
+    text-align: center;
+    font-size: large;
+}
+
+/* search and refresh section */
 .search-city {
     margin-bottom: 10px;
 }
