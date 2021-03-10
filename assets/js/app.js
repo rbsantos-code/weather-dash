@@ -21,12 +21,14 @@ function getWeather(city) {
 
     var dateInfo = " (" + month + "/" + day + "/" + year + ") ";
 
-    fetch(weatherAPI).then(function(response) {
+    fetch(weatherAPI).then(response => response.json()).then(data => console.log(data));
+
+    fetch(weatherAPI).then(response => response.json()).then(function(data) {
         
         // weather card section
-        cityNameEl.innerHTML = response.sys.name + dateInfo
+        cityNameEl.innerHTML = data.name + dateInfo
         // temperature 
-        var temp = parseInt((response.main.temp)* 9/5 - 459);
+        var temp = parseInt((data.main.temp)* 9/5 - 459);
         var cityTemp = $("<p>").text("Temp: " + temp + " Fahrenheit");
         $("#temp").append(cityTemp);
         // humidity 
@@ -36,11 +38,12 @@ function getWeather(city) {
         var windSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + " mph");
         $("#wind-speed").append(windSpeed);
         
-        return response.json();
+        return data.json();
     });
 
 
 };
+
 
 // Search and Bookmark section
 function showSearchBookmarks() {
