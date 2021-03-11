@@ -44,7 +44,10 @@ function getWeather(city) {
         // temperature 
 
         var tempEl = document.querySelector("#temp");
-        tempEl.innerHTML = "Temp: " + data.main.temp + " degrees";
+        // Convert temp numbers to F
+        var correctTemp = ((data.main.temp - 273.15) * 9/5) + 32;
+        var tempRounded = Math.round(correctTemp * 100)/100;
+        tempEl.innerHTML = "Temp: " + tempRounded + " degrees";
 
         // humidity 
 
@@ -114,7 +117,10 @@ function getWeather(city) {
                 // 5 Day Temperature 
                 
                 var fiveTempEl = document.createElement("p");
-                fiveTempEl.innerHTML = "Temp: " + weather.list[forecastIndex].main.temp + " degrees";
+                var fiveDayCorrectTemp = ((weather.list[forecastIndex].main.temp - 273.15) * 9/5) + 32; 
+                var roundTemp = Math.round(fiveDayCorrectTemp * 100)/100;
+                console.log(roundTemp);
+                fiveTempEl.innerHTML = "Temp: " + roundTemp + " degrees";
                 forecastEl[i].append(fiveTempEl);
 
                 // 5 Day humidity 
