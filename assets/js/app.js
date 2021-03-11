@@ -81,14 +81,27 @@ function getWeather(city) {
        // console log to see json from api
 
        fetch(fiveDay).then(response => response.json()).then(function(weather) {
-           console.log(weather);
-
-            var fiveDay = new Date();
-            var forecastDay = fiveDay.getDate();
-            var forecastMonth = fiveDay.getMonth() + 1;
-            var forecastYear = fiveDay.getFullYear();
 
             var forecastEl = document.querySelectorAll(".forecast");
+            for ( var i = 0; i < forecastEl.length; i++) {
+                var forecastIndex = i * 8 + 4;
+                forecastEl[i].innerHTML = "";
+
+                // 5 Day Dates
+                
+                var fiveDayDate = new Date(weather.list[forecastIndex].dt * 1000);
+                console.log(fiveDayDate);
+                var fiveDay = fiveDayDate.getDate();
+                var fiveMonth = fiveDayDate.getMonth();
+                var fiveYear = fiveDayDate.getFullYear();
+
+                var dateData = " (" + fiveDay + "/" + fiveMonth + "/" + fiveYear + ") ";
+                
+                var fiveDates = document.createElement('p');
+                fiveDates.innerHTML = dateData;
+                forecastEl[i].append(fiveDates);
+            
+            }
        });
 
     });
