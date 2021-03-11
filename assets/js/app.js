@@ -95,12 +95,19 @@ function getWeather(city) {
                 var fiveMonth = fiveDayDate.getMonth();
                 var fiveYear = fiveDayDate.getFullYear();
 
-                var dateData = " (" + fiveDay + "/" + fiveMonth + "/" + fiveYear + ") ";
+                var dateData = " (" + fiveMonth + "/" + fiveDay + "/" + fiveYear + ") ";
                 
                 var fiveDates = document.createElement('p');
                 fiveDates.innerHTML = dateData;
                 forecastEl[i].append(fiveDates);
-            
+
+                // 5 Day Icons
+
+                var fiveIconsEl = document.createElement("img");
+                fiveIconsEl.setAttribute("src", "http://openweathermap.org/img/wn/" + weather.list[forecastIndex].weather[0].icon + "@2x.png");
+                // Grabbing icon descripton 
+                fiveIconsEl.setAttribute("alt", weather.list[forecastIndex].weather[0].description);
+                forecastEl[i].append(fiveIconsEl);
             }
        });
 
