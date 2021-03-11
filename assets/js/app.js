@@ -92,6 +92,7 @@ function getWeather(city) {
                 
                 var fiveDayDate = new Date(weather.list[forecastIndex].dt * 1000);
                 console.log(fiveDayDate);
+                // console log fiveDayDate to see outcome
                 var fiveDay = fiveDayDate.getDate();
                 var fiveMonth = fiveDayDate.getMonth();
                 var fiveYear = fiveDayDate.getFullYear();
@@ -126,7 +127,6 @@ function getWeather(city) {
 
     });
 
-
 };
 
 
@@ -139,10 +139,12 @@ function showSearchBookmarks() {
         bookmarkInput.setAttribute("readonly", true);
         bookmarkInput.setAttribute("class", "form-control d-block bg-white");
         bookmarkInput.setAttribute("value", searchBookmark[i]);
+        // add to bookmarks
+        bookmarksEl.append(bookmarkInput);
+        // click event on past cities
         bookmarkInput.addEventListener("click", function() {
             getWeather(bookmarkInput.value);
         })
-        bookmarksEl.append(bookmarkInput);
     }
 }
 
