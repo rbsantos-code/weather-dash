@@ -81,6 +81,7 @@ function getWeather(city) {
        // console log to see json from api
 
        fetch(fiveDay).then(response => response.json()).then(function(weather) {
+           console.log(weather);
 
             var forecastEl = document.querySelectorAll(".forecast");
             for ( var i = 0; i < forecastEl.length; i++) {
@@ -108,6 +109,18 @@ function getWeather(city) {
                 // Grabbing icon descripton 
                 fiveIconsEl.setAttribute("alt", weather.list[forecastIndex].weather[0].description);
                 forecastEl[i].append(fiveIconsEl);
+
+                // 5 Day Temperature 
+                
+                var fiveTempEl = document.createElement("p");
+                fiveTempEl.innerHTML = "Temp: " + weather.list[forecastIndex].main.temp + " degrees";
+                forecastEl[i].append(fiveTempEl);
+
+                // 5 Day humidity 
+
+                var fiveHumidEl = document.createElement("p");
+                fiveHumidEl.innerHTML = "Humidity: " + weather.list[forecastIndex].main.humidity + " %";
+                forecastEl[i].append(fiveHumidEl);
             }
        });
 
@@ -123,6 +136,7 @@ function showSearchBookmarks() {
     for (var i = 0; i < searchBookmark.length; i++) {
         var bookmarkInput = document.createElement("input");
         bookmarkInput.setAttribute("type", "text");
+        bookmarkInput.setAttribute("readonly", true);
         bookmarkInput.setAttribute("class", "form-control d-block bg-white");
         bookmarkInput.setAttribute("value", searchBookmark[i]);
         bookmarkInput.addEventListener("click", function() {
