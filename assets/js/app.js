@@ -29,6 +29,18 @@ function getWeather(city) {
         // weather card section
         cityNameEl.innerHTML = data.name + dateInfo
 
+        // Icon Section
+        let iconURL = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+
+        var weatherImgEl = document.querySelector(".weatherImg");
+        var weatherIconEl = document.querySelector("#weatherIcon");
+
+        weatherIconEl.innerHTML = "";
+        weatherIconEl.innerHTML = data.weather[0].icon;
+        weatherIconEl.setAttribute("src", iconURL);
+        console.log(weatherImgEl);
+
+
         // temperature 
 
         var tempEl = document.querySelector("#temp");
@@ -69,6 +81,12 @@ function getWeather(city) {
        // console log to see json from api
 
        fetch(fiveDay).then(response => response.json()).then(function(weather) {
+           console.log(weather);
+
+            var fiveDay = new Date();
+            var forecastDay = fiveDay.getDate();
+            var forecastMonth = fiveDay.getMonth() + 1;
+            var forecastYear = fiveDay.getFullYear();
 
             var forecastEl = document.querySelectorAll(".forecast");
        });
@@ -94,7 +112,7 @@ function showSearchBookmarks() {
     }
 }
 
-// button section for search button
+// Search input/button section to search city name
 searchButtonEl.addEventListener("click", function() {
     var searchCity = searchInputEl.value;
     getWeather(searchCity);
@@ -103,7 +121,7 @@ searchButtonEl.addEventListener("click", function() {
     showSearchBookmarks();
 })
 
-// button section for refresh button
+// refesh button section
 refreshButtonEl.addEventListener("click", function() {
     localStorage.clear();
     searchBookmark = [];
