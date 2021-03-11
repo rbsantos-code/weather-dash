@@ -44,7 +44,7 @@ function getWeather(city) {
         var windEl = document.querySelector("#wind");
         windEl.innerHTML = "Wind Speed: " + data.wind.speed + " mph";
 
-       // UV Section
+       // UV Section------
 
        var lon = data.coord.lon;
        var lat = data.coord.lat;
@@ -60,6 +60,18 @@ function getWeather(city) {
         uvEl.innerHTML = "UV: " + info.value;
  
        })
+
+       // 5 day Forecase Section------
+
+       let fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+
+       fetch(fiveDay).then(response => response.json()).then(weather => console.log(weather));
+       // console log to see json from api
+
+       fetch(fiveDay).then(response => response.json()).then(function(weather) {
+
+            var forecastEl = document.querySelectorAll(".forecast");
+       });
 
     });
 
