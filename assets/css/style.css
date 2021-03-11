@@ -12,3 +12,17 @@
 #refresh-button {
     margin-top: 10px;
 }
+
+/* Main Card Section */
+#weather-info {
+    padding-left: 80px;
+}
+
+#weatherIcon {
+    padding-left: 230px;
+}
+
+.card-content {
+    background-color: lightcyan;
+}
+
