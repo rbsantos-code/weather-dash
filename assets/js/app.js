@@ -159,6 +159,7 @@ function showSearchBookmarks() {
         bookmarkInput.setAttribute("value", searchBookmark[i]);
         // click event on past cities
         // Assistance with TA for addEventListener 
+        // using "this" to target element value
         bookmarkInput.addEventListener("click", function() {
             getWeather(this.value);
             console.log(this.value);
