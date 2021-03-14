@@ -30,7 +30,6 @@
 
 
 ## Built with
-* HTML 
 * CSS
 * JavaScript
 * Bootstrap
@@ -39,3 +38,4 @@
 * openweathermap.org
 
 ## Website Link
+https://rbsantos-code.github.io/weather-dash/
