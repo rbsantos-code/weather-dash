@@ -158,6 +158,7 @@ function showSearchBookmarks() {
         bookmarkInput.setAttribute("class", "form-control d-block bg-white");
         bookmarkInput.setAttribute("value", searchBookmark[i]);
         // click event on past cities
+        // Assistance with TA for addEventListener 
         bookmarkInput.addEventListener("click", function() {
             getWeather(this.value);
             console.log(this.value);
