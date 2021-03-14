@@ -67,7 +67,7 @@ function getWeather(city) {
        var uvAPI = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
        fetch(uvAPI).then(response => response.json()).then(info => console.log(info));
-       // add console log to see json from api
+       // Add Console log to see json from API
 
        fetch(uvAPI).then(response => response.json()).then(function(info) {
 
