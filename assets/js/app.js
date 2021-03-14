@@ -73,6 +73,18 @@ function getWeather(city) {
 
         var uvEl = document.querySelector("#uvRay");
         uvEl.innerHTML = "UV: " + info.value;
+
+        // uv color
+        var uvColorEl = document.querySelector("#uv-color");
+        if (info.value < 4 ) {
+            uvColorEl.setAttribute("class", "badge badge-success");
+        }
+        else if ( info.value < 7 ) {
+            uvColorEl.setAttribute("class", "badge badge-warning");
+        } else {
+            uvColorEl.setAttribute("class", "badge badge-danger");
+        }
+        uvColorEl.innerHTML = "UV Indicator ";
  
        })
 
