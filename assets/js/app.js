@@ -157,12 +157,15 @@ function showSearchBookmarks() {
         bookmarkInput.setAttribute("readonly", true);
         bookmarkInput.setAttribute("class", "form-control d-block bg-white");
         bookmarkInput.setAttribute("value", searchBookmark[i]);
-        // add to bookmarks
-        bookmarksEl.append(bookmarkInput);
         // click event on past cities
         bookmarkInput.addEventListener("click", function() {
-            getWeather(bookmarkInput.value);
+            getWeather(this.value);
+            console.log(this.value);
         })
+        // add to bookmarks
+        bookmarksEl.append(bookmarkInput);
+       
+        
     }
 }
 
